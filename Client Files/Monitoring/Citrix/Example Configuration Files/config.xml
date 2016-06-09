@@ -1,0 +1,12 @@
+<configuration>
+  <name>CITRIX-EUR (Citrix Simulated Login) XML DEMO</name>
+  <storefrontUrl>https://mycorp.com/Citrix/StoreWeb</storefrontUrl>
+  <resourceName>Notepad</resourceName>
+  <logFileName>sflauncher.log</logFileName>
+  <timeoutForSFLoginPage>30</timeoutForSFLoginPage>
+  <timeoutForSFResourcesPage>30</timeoutForSFResourcesPage>
+  <timeoutForSessionLogin>60</timeoutForSessionLogin>
+  <timeoutForOther>10</timeoutForOther>
+  <interval>300</interval>
+  <syncTime>00:01</syncTime>
+</configuration>

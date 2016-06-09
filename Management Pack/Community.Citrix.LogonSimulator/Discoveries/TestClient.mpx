@@ -1,0 +1,27 @@
+﻿<ManagementPackFragment SchemaVersion="2.0" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Monitoring>
+    <Discoveries>
+      <Discovery ID="Community.Citrix.LogonSimulator.Test.Discovery" Target="Windows!Microsoft.Windows.Computer" Enabled="true" ConfirmDelivery="false" Remotable="true" Priority="Normal">
+        <Category>Discovery</Category>
+        <DiscoveryTypes>
+          <DiscoveryClass TypeID="Community.Citrix.LogonSimulator.Test" />
+        </DiscoveryTypes>
+        <DataSource ID="DS" TypeID="Community.Citrix.LogonSimulator.Test.Discovery.DS">
+          <IntervalSeconds>3600</IntervalSeconds>
+          <ConfigurationPath>C:\Monitoring\Citrix</ConfigurationPath>
+          <SyncTime></SyncTime>
+        </DataSource>
+      </Discovery>
+    </Discoveries>
+  </Monitoring>
+  <LanguagePacks>
+    <LanguagePack ID="ENU" IsDefault="true">
+      <DisplayStrings>
+        <DisplayString ElementID="Community.Citrix.LogonSimulator.Test.Discovery">
+          <Name>Discover Citrix Logon Simulator Test</Name>
+          <Description></Description>
+        </DisplayString>
+      </DisplayStrings>
+    </LanguagePack>
+  </LanguagePacks>
+</ManagementPackFragment>

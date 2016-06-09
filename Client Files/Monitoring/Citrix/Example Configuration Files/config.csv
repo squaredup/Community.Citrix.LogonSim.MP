@@ -1,0 +1,2 @@
+name,storefrontUrl,resourceName,logFileName,timeoutForSFLoginPage,timeoutForSFResourcePage,timeoutForSessionLogin,timeoutForOther,interval,syncTime
+CITRIX-EUR (Citrix Simulated Login) CSV DEMO,https://mycorp.com/Citrix/StoreWeb,Notepad,sflauncher.log,30,30,120,10,300,00:00

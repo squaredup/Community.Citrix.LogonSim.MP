@@ -1,0 +1,97 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <ProjectGuid>{b8925de7-eea3-4f93-8bae-598b0d3d465c}</ProjectGuid>
+    <RootNamespace>Community.Citrix.LogonSimulator</RootNamespace>
+    <Name>Community.Citrix.LogonSimulator</Name>
+    <ManagementPackName>Community.Citrix.LogonSimulator</ManagementPackName>
+    <Version>1.0.1.100</Version>
+    <MpFrameworkVersion>v7.0.2</MpFrameworkVersion>
+    <MpFrameworkProfile>OM</MpFrameworkProfile>
+    <ProductVersion>1.1.0.0</ProductVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Debug\</OutputPath>
+    <GenerateSealed>False</GenerateSealed>
+    <Company>Squared Up Ltd</Company>
+    <Copyright>Copyright (c) Squared Up Ltd. All rights reserved.</Copyright>
+    <DelaySigning>False</DelaySigning>
+    <AssemblyOriginatorKeyFile>C:\code\Community.Citrix.LogonSimulator\Community.Citrix.LogonSimulator.snk</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <DebugSymbols>false</DebugSymbols>
+    <OutputPath>bin\Release\</OutputPath>
+    <DelaySigning>false</DelaySigning>
+    <Company>MyCompany</Company>
+    <Copyright>Copyright (c) MyCompany. All rights reserved.</Copyright>
+    <DelaySign>false</DelaySign>
+    <AssemblyOriginatorKeyFile />
+  </PropertyGroup>
+  <ItemGroup>
+    <ManagementPackReference Include="Microsoft.SystemCenter.Library">
+      <Alias>SC</Alias>
+      <PackageToBundle>false</PackageToBundle>
+    </ManagementPackReference>
+    <ManagementPackReference Include="Microsoft.Windows.Library">
+      <Alias>Windows</Alias>
+      <PackageToBundle>false</PackageToBundle>
+    </ManagementPackReference>
+    <ManagementPackReference Include="System.Health.Library">
+      <Alias>Health</Alias>
+      <PackageToBundle>false</PackageToBundle>
+    </ManagementPackReference>
+    <ManagementPackReference Include="System.Library">
+      <Alias>System</Alias>
+      <PackageToBundle>false</PackageToBundle>
+    </ManagementPackReference>
+    <ManagementPackReference Include="Microsoft.SystemCenter.Visualization.Library">
+      <Alias>Visualization</Alias>
+      <PackageToBundle>false</PackageToBundle>
+    </ManagementPackReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Discoveries" />
+    <Folder Include="Monitors" />
+    <Folder Include="Tasks" />
+    <Folder Include="SecureReferences" />
+    <Folder Include="TypeDefinitions\EntityTypes" />
+    <Folder Include="Scripts" />
+    <Folder Include="TypeDefinitions" />
+    <Folder Include="TypeDefinitions\ModuleTypes" />
+    <Folder Include="TypeDefinitions\MonitorTypes" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Scripts\Discover-Test.ps1" />
+    <EmbeddedResource Include="Scripts\Execute-Test.ps1" />
+    <EmbeddedResource Include="Scripts\Get-LogFileContent.ps1" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Discoveries\TestClient.mpx">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ManagementPack.mpx">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Monitors\TestMonitor.mpx">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="SecureReferences\TestUserAccount.mpx">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Tasks\GetLogFileContent.mpx">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="TypeDefinitions\EntityTypes\TestClient.mpx">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="TypeDefinitions\ModuleTypes\TestClient.Discovery.DS.mpx">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="TypeDefinitions\MonitorTypes\PowerShellTwoStateMonitorType.mpx">
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath)\Microsoft\VSAC\Microsoft.SystemCenter.OperationsManager.targets" />
+</Project>

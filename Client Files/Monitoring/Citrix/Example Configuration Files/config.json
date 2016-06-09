@@ -1,0 +1,12 @@
+{
+  "name":"CITRIX-EUR (Citrix Simulated Login)",
+  "storefrontUrl":"https://mycorp.com/Citrix/StoreWeb",
+  "resourceName": "Notepad",
+  "logFileName":"sflauncher.log",
+  "timeoutForSFLoginPage": 30,
+  "timeoutForSFResourcesPage": 30,
+  "timeoutForSessionLogin": 60,
+  "timeoutForOther": 10,
+  "interval": 300,
+  "syncTime": "00:01"
+}

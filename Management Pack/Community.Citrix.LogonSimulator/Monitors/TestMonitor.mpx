@@ -1,0 +1,125 @@
+﻿<ManagementPackFragment SchemaVersion="2.0" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Monitoring>
+    <Monitors>
+      <UnitMonitor ID="Community.Citrix.LogonSimulator.TestMonitor" Accessibility="Internal" Enabled="true" Target="Community.Citrix.LogonSimulator.Test" ParentMonitorID="Health!System.Health.AvailabilityState" Remotable="true" Priority="Normal" TypeID="Community.Citrix.LogonSimulator.PowerShellTwoStateMonitorType" ConfirmDelivery="false" RunAs="Community.Citrix.LogonSimulator.TestUserAccount">
+        <Category>AvailabilityHealth</Category>
+        <AlertSettings AlertMessage="Community.Citrix.LogonSimulator.AlertMessage">
+          <AlertOnState>Error</AlertOnState>
+          <AutoResolve>true</AutoResolve>
+          <AlertPriority>Normal</AlertPriority>
+          <AlertSeverity>MatchMonitorHealth</AlertSeverity>
+        </AlertSettings>
+        <OperationalStates>
+          <OperationalState ID="Error" MonitorTypeStateID="Error" HealthState="Error" />
+          <OperationalState ID="Success" MonitorTypeStateID="Success" HealthState="Success" />
+        </OperationalStates>
+        <Configuration>
+          <IntervalSeconds>$Target/Property[Type="Community.Citrix.LogonSimulator.Test"]/Interval$</IntervalSeconds>
+          <SyncTime>$Target/Property[Type="Community.Citrix.LogonSimulator.Test"]/SyncTime$</SyncTime>
+          <ScriptName>Execute-Test.ps1</ScriptName>
+          <ScriptBody>$IncludeFileContent/Scripts/Execute-Test.ps1$</ScriptBody>
+          <Parameters>
+            <Parameter>
+              <Name>StoreFrontUrl</Name>
+              <Value>$Target/Property[Type="Community.Citrix.LogonSimulator.Test"]/StoreFrontUrl$</Value>
+            </Parameter>
+            <Parameter>
+              <Name>ResourceName</Name>
+              <Value>$Target/Property[Type="Community.Citrix.LogonSimulator.Test"]/ResourceName$</Value>
+            </Parameter>
+            <Parameter>
+              <Name>Domain</Name>
+              <Value>$RunAs[Name="Community.Citrix.LogonSimulator.TestUserAccount"]/Domain$</Value>
+            </Parameter>
+            <Parameter>
+              <Name>UserName</Name>
+              <Value>$RunAs[Name="Community.Citrix.LogonSimulator.TestUserAccount"]/UserName$</Value>
+            </Parameter>
+            <Parameter>
+              <Name>Password</Name>
+              <Value>$RunAs[Name="Community.Citrix.LogonSimulator.TestUserAccount"]/Password$</Value>
+            </Parameter>
+            <Parameter>
+              <Name>TestName</Name>
+              <Value>$Target/Property[Type="Community.Citrix.LogonSimulator.Test"]/TestName$</Value>
+            </Parameter>
+            <Parameter>
+              <Name>ConfigurationPath</Name>
+              <Value>$Target/Property[Type="Community.Citrix.LogonSimulator.Test"]/ConfigurationPath$</Value>
+            </Parameter>
+            <Parameter>
+              <Name>LogFileName</Name>
+              <Value>$Target/Property[Type="Community.Citrix.LogonSimulator.Test"]/LogFileName$</Value>
+            </Parameter>
+            <Parameter>
+              <Name>TimeoutForSFLoginPage</Name>
+              <Value>$Target/Property[Type="Community.Citrix.LogonSimulator.Test"]/TimeoutForSFLoginPage$</Value>
+            </Parameter>
+            <Parameter>
+              <Name>TimeoutForSFResourcesPage</Name>
+              <Value>$Target/Property[Type="Community.Citrix.LogonSimulator.Test"]/TimeoutForSFResourcesPage$</Value>
+            </Parameter>
+            <Parameter>
+              <Name>TimeoutForSessionLogin</Name>
+              <Value>$Target/Property[Type="Community.Citrix.LogonSimulator.Test"]/TimeoutForSessionLogin$</Value>
+            </Parameter>
+            <Parameter>
+              <Name>TimeoutForOther</Name>
+              <Value>$Target/Property[Type="Community.Citrix.LogonSimulator.Test"]/TimeoutForOther$</Value>
+            </Parameter>
+          </Parameters>
+          <TimeoutSeconds>600</TimeoutSeconds>
+          <ErrorExpression>
+            <SimpleExpression>
+              <ValueExpression>
+                <XPathQuery Type="String">Property[@Name='State']</XPathQuery>
+              </ValueExpression>
+              <Operator>NotEqual</Operator>
+              <ValueExpression>
+                <Value Type="String">good</Value>
+              </ValueExpression>
+            </SimpleExpression>
+          </ErrorExpression>
+          <SuccessExpression>
+            <SimpleExpression>
+              <ValueExpression>
+                <XPathQuery Type="String">Property[@Name='State']</XPathQuery>
+              </ValueExpression>
+              <Operator>Equal</Operator>
+              <ValueExpression>
+                <Value Type="String">good</Value>
+              </ValueExpression>
+            </SimpleExpression>
+          </SuccessExpression>
+        </Configuration>
+      </UnitMonitor>
+    </Monitors>
+  </Monitoring>
+  <Presentation>
+    <StringResources>
+      <StringResource ID="Community.Citrix.LogonSimulator.AlertMessage" />
+    </StringResources>
+  </Presentation>
+  <LanguagePacks>
+    <LanguagePack ID="ENU" IsDefault="true">
+      <DisplayStrings>
+        <DisplayString ElementID="Community.Citrix.LogonSimulator.TestMonitor">
+          <Name>Logon Simulator Monitor</Name>
+          <Description>Performs an application launch to test availability</Description>
+        </DisplayString>
+        <DisplayString ElementID="Community.Citrix.LogonSimulator.AlertMessage">
+          <Name>Citrix Simulated Logon Failed</Name>
+          <Description>An automated test to launch an application failed. The application may be unavailable to some or all users.</Description>
+        </DisplayString>
+        <DisplayString ElementID="Community.Citrix.LogonSimulator.TestMonitor" SubElementID="Error">
+          <Name>Error</Name>
+          <Description>Error</Description>
+        </DisplayString>
+        <DisplayString ElementID="Community.Citrix.LogonSimulator.TestMonitor" SubElementID="Success">
+          <Name>Success</Name>
+          <Description>Success</Description>
+        </DisplayString>
+      </DisplayStrings>
+    </LanguagePack>
+  </LanguagePacks>
+</ManagementPackFragment>

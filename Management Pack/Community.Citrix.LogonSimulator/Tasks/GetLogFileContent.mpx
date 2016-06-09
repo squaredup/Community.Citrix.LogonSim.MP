@@ -1,0 +1,36 @@
+﻿<ManagementPackFragment SchemaVersion="2.0" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Monitoring>
+    <Tasks>
+      <Task ID="Community.Citrix.LogonSimulator.GetLogFileContent" Accessibility="Internal" Target="Community.Citrix.LogonSimulator.Test" Enabled="true" Timeout="300" Remotable="true">
+        <Category>Operations</Category>
+        <ProbeAction ID="Probe" TypeID="Windows!Microsoft.Windows.PowerShellProbe">
+          <ScriptName>Get-LogFileContent.ps1</ScriptName>
+          <ScriptBody>$IncludeFileContent/Scripts/Get-LogFileContent.ps1$</ScriptBody>
+          <SnapIns />
+          <Parameters>
+            <Parameter>
+              <Name>ConfigurationPath</Name>
+              <Value>$Target/Property[Type="Community.Citrix.LogonSimulator.Test']/ConfigurationPath$</Value>
+            </Parameter>
+            <Parameter>
+              <Name>TestName</Name>
+              <Value>$Target/Property[Type="Community.Citrix.LogonSimulator.Test']/TestName$</Value>
+            </Parameter>
+          </Parameters>
+          <TimeoutSeconds>300</TimeoutSeconds>
+          <StrictErrorHandling>true</StrictErrorHandling>
+        </ProbeAction>
+      </Task>
+    </Tasks>
+  </Monitoring>
+  <LanguagePacks>
+    <LanguagePack ID="ENU" IsDefault="true">
+      <DisplayStrings>
+        <DisplayString ElementID="Community.Citrix.LogonSimulator.GetLogFileContent">
+          <Name>View Last Logon Result</Name>
+          <Description>Gets the log output for the most recent simulated logon.</Description>
+        </DisplayString>
+      </DisplayStrings>
+    </LanguagePack>
+  </LanguagePacks>
+</ManagementPackFragment>

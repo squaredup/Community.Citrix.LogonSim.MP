@@ -1,0 +1,85 @@
+﻿<ManagementPackFragment SchemaVersion="2.0" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <TypeDefinitions>
+    <EntityTypes>
+      <ClassTypes>
+        <ClassType ID="Community.Citrix.LogonSimulator.Test" Base="System!System.Perspective" Accessibility="Internal" Abstract="false" Hosted="true" Singleton="false">
+          <Property ID="TestName" Type="string" MaxLength="256" MinLength="0" Required="true" Key="true"/>
+          <Property ID="ConfigurationPath" Type="string" MaxLength="256" MinLength="0" Required="true"/>
+          <Property ID="StoreFrontUrl" Type="string" MaxLength="256" MinLength="0" Required="true"/>
+          <Property ID="ResourceName" Type="string" MaxLength="256" MinLength="0" Required="true"/>
+          <Property ID="LogFileName" Type="string" MaxLength="256" MinLength="0" Required="true"/>
+          <Property ID="TimeoutForSFLoginPage" Type="int" Required="false"/>
+          <Property ID="TimeoutForSFResourcesPage" Type="int" Required="false"/>
+          <Property ID="TimeoutForSessionLogin" Type="int" Required="false"/>
+          <Property ID="TimeoutForOther" Type="int" Required="false"/>
+          <Property ID="Interval" Type="int" Required="true"/>
+          <Property ID="SyncTime" Type="string" MaxLength="256" MinLength="0" Required="false"/>
+        </ClassType>
+      </ClassTypes>
+      <RelationshipTypes>
+        <RelationshipType ID="Community.Citrix.LogonSimulator.ComputerHostsTest" Accessibility="Internal" Abstract="false" Base="System!System.Hosting">
+          <Source ID="Source" Type="Windows!Microsoft.Windows.Computer" />
+          <Target ID="Target" Type="Community.Citrix.LogonSimulator.Test" />
+        </RelationshipType>
+      </RelationshipTypes>
+    </EntityTypes>
+  </TypeDefinitions>
+  <LanguagePacks>
+    <LanguagePack ID="ENU" IsDefault="true">
+      <DisplayStrings>
+        <DisplayString ElementID="Community.Citrix.LogonSimulator.Test">
+          <Name>Citrix Logon Simulator Test</Name>
+          <Description></Description>
+        </DisplayString>
+        <DisplayString ElementID="Community.Citrix.LogonSimulator.Test" SubElementID="TestName">
+          <Name>Test Name</Name>
+          <Description></Description>
+        </DisplayString>
+        <DisplayString ElementID="Community.Citrix.LogonSimulator.Test" SubElementID="ConfigurationPath">
+          <Name>Configuration Path</Name>
+          <Description></Description>
+        </DisplayString>
+        <DisplayString ElementID="Community.Citrix.LogonSimulator.Test" SubElementID="StoreFrontUrl">
+          <Name>StoreFront URL</Name>
+          <Description></Description>
+        </DisplayString>
+        <DisplayString ElementID="Community.Citrix.LogonSimulator.Test" SubElementID="ResourceName">
+          <Name>Resource Name</Name>
+          <Description></Description>
+        </DisplayString>
+        <DisplayString ElementID="Community.Citrix.LogonSimulator.Test" SubElementID="LogFileName">
+          <Name>Log File Name</Name>
+          <Description></Description>
+        </DisplayString>
+        <DisplayString ElementID="Community.Citrix.LogonSimulator.Test" SubElementID="TimeoutForSFLoginPage">
+          <Name>Timeout For SF Login Page</Name>
+          <Description></Description>
+        </DisplayString>
+        <DisplayString ElementID="Community.Citrix.LogonSimulator.Test" SubElementID="TimeoutForSFResourcesPage">
+          <Name>Timeout For SF Resources Page</Name>
+          <Description></Description>
+        </DisplayString>
+        <DisplayString ElementID="Community.Citrix.LogonSimulator.Test" SubElementID="TimeoutForSessionLogin">
+          <Name>Timeout For Session Login</Name>
+          <Description></Description>
+        </DisplayString>
+        <DisplayString ElementID="Community.Citrix.LogonSimulator.Test" SubElementID="TimeoutForOther">
+          <Name>Timeout For Other</Name>
+          <Description></Description>
+        </DisplayString>
+        <DisplayString ElementID="Community.Citrix.LogonSimulator.Test" SubElementID="Interval">
+          <Name>Interval</Name>
+          <Description></Description>
+        </DisplayString>
+        <DisplayString ElementID="Community.Citrix.LogonSimulator.Test" SubElementID="SyncTime">
+          <Name>Sync Time</Name>
+          <Description></Description>
+        </DisplayString>
+        <DisplayString ElementID="Community.Citrix.LogonSimulator.ComputerHostsTest">
+          <Name>Windows Computer hosts Citrix Logon Simulator Test</Name>
+          <Description></Description>
+        </DisplayString>
+      </DisplayStrings>
+    </LanguagePack>
+  </LanguagePacks>
+</ManagementPackFragment>
