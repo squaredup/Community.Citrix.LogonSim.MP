@@ -10,8 +10,8 @@ Once installed and configured, the management pack will perform regular, automat
 
 To install the Logon Simulator you will need:
 
-- SCOM 2012 R2
-- Citrix XenDesktop or XenApp, with StoreFront 3.0.*
+- SCOM 2012 R2 (earlier versions may be supported but are untested)
+- Citrix XenDesktop or XenApp, with StoreFront 3.5 or later (the script requires a minor modification to run with SF 3.0)
 - A user account that will be used to perform the logons. The account must have access to one or more desktops or applications.
 - A test application (e.g. Notepad) or desktop that will be launched. The above user must have access to the application.
 - A test machine with Internet Explorer and Citrix Receiver installed, from where the logons will be made
@@ -94,3 +94,12 @@ To verify the test clients are discovered and the tests are running, you can use
 
 Navigate to `Monitoring > Discovered Inventory` and change the type to `Citrix Logon Simulator Test`. You should see the test clients appear. Click on one to see its properties. There will also be an agent task available called `View Last Logon Result` that you can use to view the most recent test log.
 
+## Need help?
+
+This management pack is a community management originally developed by Squared Up (http://www.squaredup.com).
+
+For help and advice, post questions on http://community.squaredup.com/answers.
+
+## Can you improve the script or management pack?
+
+If you want to suggest some fixes or improvements to the script or management pack, raise an issue on [the GitHub Issues page](https://github.com/squaredup/Community.Citrix.LogonSim.MP/issues) or better, submit the suggested change as a [Pull Request](https://github.com/squaredup/Community.Citrix.LogonSim.MP/pulls).
