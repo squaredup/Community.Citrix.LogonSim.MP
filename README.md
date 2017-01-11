@@ -51,7 +51,7 @@ Verify the user logon by manually browsing to your StoreFront URL, logon with th
 
 **REALLY IMPORTANT** Verify that the logon and application launch involves no pop-up dialogs, file downloads or other user interruptions. The test application must also be available on the front page after user logon, i.e. in the user favourites.
 
-### Configure and test the script: 
+#### Configure and test the script: 
 
 1. Unzip the ClientFiles.zip to the C: drive on the test client. This should create the following folder structure:
  
@@ -91,6 +91,7 @@ Lastly, configure the machine as a test client so that SCOM will automatically r
 
 2. Edit the file, replacing the placeholder values with the details for your environment.
 
+### Step 3 - Check everything's working
 
 That’s it. SCOM should now discover the config.json file, create new `Citrix Logon Simulator Test` objects hosted on the `Windows Computer` object to represent the tests, and start executing the logon script.
 
