@@ -10,7 +10,7 @@ Once installed and configured, the management pack will perform regular, automat
 
 This GitHub repository contains the source files. The downloadable management pack and assoaciated files can be found here:
 
-https://download.squaredup.com/downloads/download-info/community-citrix-logonsim-mp/
+https://download.squaredup.com/management-packs/citrix-logon-simulator-community/
 
 To install the Logon Simulator you will need:
 
